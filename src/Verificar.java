@@ -1,5 +1,5 @@
 import java.util.StringTokenizer;
-public class Verificar {
+public class Verificar implements Cloneable{
     private double valor;
     private int qtd;
     public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
@@ -21,10 +21,6 @@ public class Verificar {
         this.qtd = qtdExpressao;
     }
 
-    public int getQtd (){
-        return this.qtd;
-    }
-
 
     protected void transformeToDouble(String valor)
     {
@@ -35,6 +31,7 @@ public class Verificar {
         }
     }
     public double getValor(){return this.valor;}
+    public int getQtd (){ return this.qtd;}
 /*
     protected  boolean verificaQtd ()
     {
@@ -89,5 +86,53 @@ public class Verificar {
 
     }
 
+
+    // Obrigatorios toString, equals, clone, construtor copia, hashCode
+    public boolean equals(Object obj)
+    {
+        if(obj == null)
+            return false;
+        if(this == obj)
+            return true;
+        if(this.getClass() != obj.getClass())
+            return false;
+        Verificar aux = (Verificar)obj ;
+        if(aux.qtd != this.qtd)
+                return false;
+        if(aux.valor != this.valor)
+            return false;
+
+        return true;
+    }
+    public int hashCode()
+    {
+        int ret = 1;
+        ret = ret * 7 + new Integer(this.qtd).hashCode();
+        ret = ret * 7 + new Double(this.valor).hashCode();
+        if(ret < 0)
+            ret =- ret;
+
+        return ret;
+    }
+    public String toString()
+    {
+        return "Valor que esta sendo Armazenado na Variavel Valor: "+ this.valor +
+                "\n Quantidade de Expressoes: "+ this.qtd;
+    }
+    public Object clone()
+    {
+        Verificar ret = null;
+        try {
+            ret = new Verificar(this);
+        }catch(Exception erro){}
+        return ret;
+    }
+    public Verificar(Verificar obj) throws Exception
+    {
+        if(obj == null)
+            throw new Exception("Não Possivel Clonar, pois Objeto é nulo!");
+        this.qtd = obj.qtd;
+        this.valor = obj.valor;
+    }
 
 }

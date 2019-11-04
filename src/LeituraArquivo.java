@@ -3,8 +3,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.StringTokenizer;
 
-public class LeituraArquivo {
-    protected String nomeArquivo;
+public class LeituraArquivo implements Cloneable{
+    private String nomeArquivo;
 
     public LeituraArquivo(String nomeArq) throws  Exception
     {
@@ -21,7 +21,7 @@ public class LeituraArquivo {
             BufferedReader arquivo =
                     new BufferedReader (
                             new FileReader(
-                                    "/home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt"));
+                                    "C:\\Users\\User\\Documents\\ProjetaoFinal\\gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
             Verificar verificar = new Verificar(qtdEquacoes);
@@ -48,4 +48,45 @@ public class LeituraArquivo {
 
         }catch (Exception erro){}
     }
+    // Obrigatorios Clone
+    public String getNomeArquivo() { return this.nomeArquivo; }
+    public String toString(){return this.nomeArquivo;}
+    public int hashCode()
+    {
+        int ret = 1;
+        ret = ret * 7 + nomeArquivo.hashCode();
+        if(ret < 0)
+            ret =- ret;
+
+        return ret;
+    }
+    public Object clone()
+    {
+        LeituraArquivo ret = null;
+        try{
+            ret = new LeituraArquivo(this);
+        }catch(Exception erro){}
+        return  ret;
+    }
+    public LeituraArquivo(LeituraArquivo mold) throws Exception
+    {
+        if(mold == null)
+            throw new Exception("Objeto Nulo!");
+        this.nomeArquivo = mold.nomeArquivo;
+    }
+    public boolean equals(Object obj)
+    {
+        if(obj == null)
+            return false;
+        if(this == obj)
+            return true;
+        if(this.getClass() != obj.getClass())
+            return false;
+        LeituraArquivo aux = (LeituraArquivo)obj;
+        if(aux.nomeArquivo != this.nomeArquivo)
+            return false;
+
+        return true;
+    }
+
 }
