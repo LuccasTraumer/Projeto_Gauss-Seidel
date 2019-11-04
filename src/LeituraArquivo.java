@@ -17,6 +17,10 @@ public class LeituraArquivo implements Cloneable{
 
     private void leituraLinha()
     {
+        // ALERTA CASO VÁ USAR SO WINDOWS USA DESSA MANEIRA O CAMINHO DO ARQUIVO
+        //C:\Users\User\Documents\ProjetaoFinal\gauss.txt
+        // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
+        //
         try{
             BufferedReader arquivo =
                     new BufferedReader (
