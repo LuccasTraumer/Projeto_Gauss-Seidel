@@ -1,3 +1,4 @@
+import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.StringTokenizer;
@@ -20,7 +21,7 @@ public class LeituraArquivo {
             BufferedReader arquivo =
                     new BufferedReader (
                             new FileReader(
-                                    "~/Projetos/projetaoFinal/src/gauss.txt"));
+                                    "/home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
             Verificar verificar = new Verificar(qtdEquacoes);
@@ -34,9 +35,14 @@ public class LeituraArquivo {
                 while (quebrador.hasMoreTokens()) {
                     verificar.transformeToDouble(quebrador.nextToken());
                     armazena.inclua(verificar.getValor());
+
                     //System.out.println(verificar.getValor());
                 }
             }
+            System.out.println("Linhas");
+            verificar.verificarZerosLinhas(armazena.getMatriz());
+            System.out.println("Colunas");
+            verificar.verificarZerosColunas(armazena.getMatriz());
 
 
 

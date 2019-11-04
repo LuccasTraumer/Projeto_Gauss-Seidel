@@ -52,6 +52,42 @@ public class Verificar {
 
         return true;
     }
+    protected void verificarZerosLinhas(double[][] matriz) throws Exception
+    {
+        int contZero = 0;
+        for(int i=0; i < matriz.length;i++)
+        {
+            for(int j=0; j < matriz.length;j++)
+            {
+                if(matriz[j][i] == 0)
+                    contZero++;
+
+            }
+            System.out.println(contZero);
+            contZero = 0;
+        }
+        if(contZero == matriz.length)
+            throw new Exception("Zeros");
+
+    }
+    protected void verificarZerosColunas(double[][] matriz) throws Exception
+    {
+        int contZero = 0;
+        for(int i=0; i < matriz[i].length;i++)// linhas
+        {
+            for(int j=0; j < matriz.length;j++) {
+                if(matriz[i][j] == 0)
+                    contZero++;
+            }
+            System.out.println(contZero);
+            contZero = 0;
+        }
+        if(contZero == matriz.length)
+            throw new Exception("Zeros");
+
+
+
+    }
 
 
 }

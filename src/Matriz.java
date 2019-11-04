@@ -16,15 +16,16 @@ public class Matriz {
         {
             matriz[linhas][colunas] = valor;
 
-            System.out.print(matriz[linhas][colunas]+" ");
+            //System.out.print(matriz[linhas][colunas]+" ");
             this.colunas++;
             if(this.colunas >= this.qtdExpressao+1)
             {
                 this.linhas++;
                 this.colunas=0;
-                System.out.println();
+                //System.out.println();
             }
         }
+
     }
     protected  void Mat (){
         for(int i=0; i < qtdExpressao;i++)
@@ -33,6 +34,11 @@ public class Matriz {
                 System.out.println(matriz[i][j] + " ");
         }
 
+    }
+
+    public double[][] getMatriz()
+    {
+        return this.matriz;
     }
 
 }
