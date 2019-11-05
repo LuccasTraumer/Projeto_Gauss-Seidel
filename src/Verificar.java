@@ -60,11 +60,12 @@ public class Verificar implements Cloneable{
                     contZero++;
 
             }
+            if(contZero == matriz.length)
+                throw new Exception("Zeros");
             System.out.println(contZero);
             contZero = 0;
         }
-        if(contZero == matriz.length)
-            throw new Exception("Zeros");
+
 
     }
     protected void verificarZerosColunas(double[][] matriz) throws Exception
@@ -76,15 +77,20 @@ public class Verificar implements Cloneable{
                 if(matriz[i][j] == 0)
                     contZero++;
             }
+            if(contZero == matriz.length)
+                throw new Exception("Zeros");
             System.out.println(contZero);
             contZero = 0;
+
         }
-        if(contZero == matriz.length)
-            throw new Exception("Zeros");
+
 
 
 
     }
+
+
+
 
 
     // Obrigatorios toString, equals, clone, construtor copia, hashCode

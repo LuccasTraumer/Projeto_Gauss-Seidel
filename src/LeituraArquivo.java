@@ -20,12 +20,13 @@ public class LeituraArquivo implements Cloneable{
         // ALERTA CASO VÁ USAR SO WINDOWS USA DESSA MANEIRA O CAMINHO DO ARQUIVO
         //C:\Users\User\Documents\ProjetaoFinal\gauss.txt
         // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
-        //
+        ///home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt
+        // MUDAR NOME DO CAMINHO
         try{
             BufferedReader arquivo =
                     new BufferedReader (
                             new FileReader(
-                                    "C:\\Users\\User\\Documents\\ProjetaoFinal\\gauss.txt"));
+                                    "/home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
             Verificar verificar = new Verificar(qtdEquacoes);

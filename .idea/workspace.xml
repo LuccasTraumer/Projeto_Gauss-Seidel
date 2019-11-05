@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2613ad1-424f-4991-b5a3-aaea05e0af54" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/proj2/proj2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gauss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gauss.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Programa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Programa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeituraArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeituraArquivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Verificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verificar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +28,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1T839m79A99tl3A08AFsNWLGsfc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -34,10 +42,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -59,16 +67,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Programa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Programa" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8.0_231" />
       <option name="MAIN_CLASS_NAME" value="Programa" />
       <module name="ProjetaoFinal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Programa" />
+      <item itemvalue="Application.Aula" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Programa" />
         <item itemvalue="Application.Aula" />
       </list>
     </recent_temporary>
@@ -86,6 +98,9 @@
       <workItem from="1572827991136" duration="4153000" />
       <workItem from="1572869294844" duration="538000" />
       <workItem from="1572871387628" duration="4190000" />
+      <workItem from="1572906859250" duration="565000" />
+      <workItem from="1572907463164" duration="344000" />
+      <workItem from="1572908702938" duration="2940000" />
     </task>
     <servers />
   </component>
@@ -116,12 +131,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LeituraArquivo.java</url>
           <line>14</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Programa.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
