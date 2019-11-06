@@ -3,7 +3,7 @@ import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 
 public class Matriz implements Cloneable{
     private double[][] matriz;
-    private double[][] matrizAuxiliar;
+    private int[][] matrizAuxiliar;
     private int linhas = 0;
     private int colunas = 0;
     private Verificar verf;
@@ -42,19 +42,26 @@ public class Matriz implements Cloneable{
     protected void matrizDePossibilidades()
     {
         int colunas = OperacoesMatematica.Fatoracao(matriz.length);
-        matrizAuxiliar = new double[qtdExpressao][colunas];
+        matrizAuxiliar = new int[qtdExpressao][colunas];
 
         int qtdPossibilidades = colunas;
         int incrementador = 0, qual = 0, qtdInserida = 0;
+
 
         for(int i=0; i<matriz.length;i++) {
             qtdPossibilidades /= matriz.length - i;
             for (int j = 0; j < colunas; j++)
             {
-                for(int y = 0; y<qtdInserida; y++)
-                    if(matrizAuxiliar[y][j] == qual)
+                for(int y = 0; y<qtdInserida; y++) {
+                    if (matrizAuxiliar[y][j] == qual) {
                         qual++;
-
+                        y=-1;
+                    }
+                    if(qual > matriz.length-1) {
+                        qual = 0;
+                        y=-1;
+                    }
+                }
                 matrizAuxiliar[i][j] = qual;
                 System.out.print(matrizAuxiliar[i][j] + " ");
                 incrementador++;
@@ -74,14 +81,6 @@ public class Matriz implements Cloneable{
             qtdInserida++;
 
         }
-       /* for(int i =0; i<matrizAuxiliar.length;i++) {
-            for (int j = 0; j < qtdPossibilidades; j++) {
-                System.out.print(matrizAuxiliar[i][j]);
-
-            }
-            System.out.println();
-        }*/
-
 
     }
 

@@ -2,6 +2,7 @@ import java.util.StringTokenizer;
 public class Verificar implements Cloneable{
     private double valor;
     private int qtd;
+
     public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
     {
         this.qtd = qtdEquacoes;
@@ -42,6 +43,17 @@ public class Verificar implements Cloneable{
         return true;
     }
 */
+    protected boolean temZeroDiagonal(double[][] matriz)
+    {
+
+        for(int i=0;i<matriz.length;i++){
+            if(matriz[i][i] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected  boolean verificaQtd (int qtd)
     {
         if(qtd <= 0)

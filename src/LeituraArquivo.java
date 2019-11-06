@@ -40,21 +40,17 @@ public class LeituraArquivo implements Cloneable{
                 while (quebrador.hasMoreTokens()) {
                     verificar.transformeToDouble(quebrador.nextToken());
                     armazena.inclua(verificar.getValor());
-
-                    //System.out.println(verificar.getValor());
                 }
             }
-            armazena.matrizDePossibilidades();
-/*
-            System.out.println("Linhas");
-            verificar.verificarZerosLinhas(armazena.getMatriz());
-            System.out.println("Colunas");
-            verificar.verificarZerosColunas(armazena.getMatriz());*/
-
-
-
         }catch (Exception erro){}
     }
+
+
+
+
+
+
+
     // Obrigatorios Clone
     public String getNomeArquivo() { return this.nomeArquivo; }
     public String toString(){return this.nomeArquivo;}

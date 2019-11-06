@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c2613ad1-424f-4991-b5a3-aaea05e0af54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gauss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gauss.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Matriz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Matriz.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeituraArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeituraArquivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Matriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matriz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Verificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verificar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,13 +129,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Verificar.java</url>
-          <line>52</line>
+          <line>64</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeituraArquivo.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Matriz.java</url>
