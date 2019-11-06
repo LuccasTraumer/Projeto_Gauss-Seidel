@@ -1,5 +1,9 @@
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
+
 public class Matriz implements Cloneable{
     private double[][] matriz;
+    private double[][] matrizAuxiliar;
     private int linhas = 0;
     private int colunas = 0;
     private Verificar verf;
@@ -27,14 +31,63 @@ public class Matriz implements Cloneable{
         }
 
     }
-    protected  void Mat (){
+    /*protected  void Mat (){
         for(int i=0; i < qtdExpressao;i++)
         {
             for(int j=0;j < qtdExpressao+1;j++)
                 System.out.println(matriz[i][j] + " ");
         }
+    }*/
+
+    protected void matrizDePossibilidades()
+    {
+        int colunas = OperacoesMatematica.Fatoracao(matriz.length);
+        matrizAuxiliar = new double[qtdExpressao][colunas];
+
+        int qtdPossibilidades = colunas;
+        int incrementador = 0, qual = 0, qtdInserida = 0;
+
+        for(int i=0; i<matriz.length;i++) {
+            qtdPossibilidades /= matriz.length - i;
+            for (int j = 0; j < colunas; j++)
+            {
+                for(int y = 0; y<qtdInserida; y++)
+                    if(matrizAuxiliar[y][j] == qual)
+                        qual++;
+
+                matrizAuxiliar[i][j] = qual;
+                System.out.print(matrizAuxiliar[i][j] + " ");
+                incrementador++;
+
+                if(incrementador == qtdPossibilidades)
+                {
+                    incrementador = 0;
+
+                    if(qual == matriz.length - 1)
+                        qual = 0;
+                    else
+                        qual++;
+                }
+            }
+            qual = 0;
+            System.out.println();
+            qtdInserida++;
+
+        }
+       /* for(int i =0; i<matrizAuxiliar.length;i++) {
+            for (int j = 0; j < qtdPossibilidades; j++) {
+                System.out.print(matrizAuxiliar[i][j]);
+
+            }
+            System.out.println();
+        }*/
+
 
     }
+
+
+
+
 
     public int getLinhas() { return linhas; }
 

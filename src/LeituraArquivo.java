@@ -26,7 +26,7 @@ public class LeituraArquivo implements Cloneable{
             BufferedReader arquivo =
                     new BufferedReader (
                             new FileReader(
-                                    "/home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt"));
+                                    "C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
             Verificar verificar = new Verificar(qtdEquacoes);
@@ -44,10 +44,12 @@ public class LeituraArquivo implements Cloneable{
                     //System.out.println(verificar.getValor());
                 }
             }
+            armazena.matrizDePossibilidades();
+/*
             System.out.println("Linhas");
             verificar.verificarZerosLinhas(armazena.getMatriz());
             System.out.println("Colunas");
-            verificar.verificarZerosColunas(armazena.getMatriz());
+            verificar.verificarZerosColunas(armazena.getMatriz());*/
 
 
 
