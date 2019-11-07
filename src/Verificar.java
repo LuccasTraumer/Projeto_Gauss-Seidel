@@ -3,6 +3,8 @@ public class Verificar implements Cloneable{
     private double valor;
     private int qtd;
 
+    public Verificar()
+    {}
     public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
     {
         this.qtd = qtdEquacoes;
@@ -21,7 +23,13 @@ public class Verificar implements Cloneable{
 
         this.qtd = qtdExpressao;
     }
+    protected boolean temZeroDiagonal(double valor)
+    {
+        if(valor == 0)
+            return true;
 
+        return false;
+    }
 
     protected void transformeToDouble(String valor)
     {
@@ -43,7 +51,7 @@ public class Verificar implements Cloneable{
         return true;
     }
 */
-    protected boolean temZeroDiagonal(double[][] matriz)
+    protected boolean temZerosDiagonal(double[][] matriz)
     {
 
         for(int i=0;i<matriz.length;i++){

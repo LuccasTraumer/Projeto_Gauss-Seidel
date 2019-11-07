@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class LeituraArquivo implements Cloneable{
     private String nomeArquivo;
-
+    protected Verificar verificar;
     public LeituraArquivo(String nomeArq) throws  Exception
     {
         if(nomeArq == null )
@@ -13,6 +13,7 @@ public class LeituraArquivo implements Cloneable{
 
         this.nomeArquivo = nomeArq;
         this.leituraLinha();
+
     }
 
     private void leituraLinha()
@@ -29,7 +30,7 @@ public class LeituraArquivo implements Cloneable{
                                     "C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
-            Verificar verificar = new Verificar(qtdEquacoes);
+            verificar = new Verificar(qtdEquacoes);
             int linhas = 0;
             Matriz armazena = new Matriz(verificar.getQtd());
             for (int i=0; i<qtdEquacoes; i++)
@@ -42,14 +43,9 @@ public class LeituraArquivo implements Cloneable{
                     armazena.inclua(verificar.getValor());
                 }
             }
+            OperacoesMatriz opMatriz =  new OperacoesMatriz(armazena);
         }catch (Exception erro){}
     }
-
-
-
-
-
-
 
     // Obrigatorios Clone
     public String getNomeArquivo() { return this.nomeArquivo; }

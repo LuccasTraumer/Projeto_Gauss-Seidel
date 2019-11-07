@@ -2,19 +2,18 @@ import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 
 public class Matriz implements Cloneable{
-    private double[][] matriz;
-    private int[][] matrizAuxiliar;
+    protected double[][] matriz;
     private int linhas = 0;
     private int colunas = 0;
-    private Verificar verf;
-    private int qtdExpressao;
+    protected Verificar verf;
+    protected int qtdExpressao;
 
     public Matriz (int qtdExpressao) {
         this.qtdExpressao = qtdExpressao;
         int valor = qtdExpressao+1;
         matriz = new double [qtdExpressao][valor];
-
     }
+
     protected void inclua(double valor){
         if(this.linhas < this.qtdExpressao && this.colunas < this.qtdExpressao+1)
         {
@@ -38,54 +37,6 @@ public class Matriz implements Cloneable{
                 System.out.println(matriz[i][j] + " ");
         }
     }*/
-
-    protected void matrizDePossibilidades()
-    {
-        int colunas = OperacoesMatematica.Fatoracao(matriz.length);
-        matrizAuxiliar = new int[qtdExpressao][colunas];
-
-        int qtdPossibilidades = colunas;
-        int incrementador = 0, qual = 0, qtdInserida = 0;
-
-
-        for(int i=0; i<matriz.length;i++) {
-            qtdPossibilidades /= matriz.length - i;
-            for (int j = 0; j < colunas; j++)
-            {
-                for(int y = 0; y<qtdInserida; y++) {
-                    if (matrizAuxiliar[y][j] == qual) {
-                        qual++;
-                        y=-1;
-                    }
-                    if(qual > matriz.length-1) {
-                        qual = 0;
-                        y=-1;
-                    }
-                }
-                matrizAuxiliar[i][j] = qual;
-                System.out.print(matrizAuxiliar[i][j] + " ");
-                incrementador++;
-
-                if(incrementador == qtdPossibilidades)
-                {
-                    incrementador = 0;
-
-                    if(qual == matriz.length - 1)
-                        qual = 0;
-                    else
-                        qual++;
-                }
-            }
-            qual = 0;
-            System.out.println();
-            qtdInserida++;
-
-        }
-
-    }
-
-
-
 
 
     public int getLinhas() { return linhas; }

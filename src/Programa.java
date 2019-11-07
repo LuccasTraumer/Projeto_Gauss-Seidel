@@ -11,6 +11,8 @@ public class Programa {
             // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
             //
             LeituraArquivo ler = new LeituraArquivo("C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt");
+
+
             //System.out.println(ler.);
             //System.out.println(ler.nomeArquivo);
             //Matriz mat = new Matriz(4);
