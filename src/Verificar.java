@@ -5,6 +5,7 @@ public class Verificar implements Cloneable{
 
     public Verificar()
     {}
+
     public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
     {
         this.qtd = qtdEquacoes;
