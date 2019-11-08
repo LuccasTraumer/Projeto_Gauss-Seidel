@@ -14,6 +14,14 @@ public class Matriz implements Cloneable{
         matriz = new double [qtdExpressao][valor];
     }
 
+    // VERIFICAR SE TEM NECESSIDADE DESSE MÉTODO
+   /* protected void matrizValida() throws Exception{
+            verf.verificarZerosColunas(getMatriz());
+            verf.verificarZerosLinhas(getMatriz());
+           }*/
+
+
+
     protected void inclua(double valor){
         if(this.linhas < this.qtdExpressao && this.colunas < this.qtdExpressao+1)
         {
@@ -30,14 +38,6 @@ public class Matriz implements Cloneable{
         }
 
     }
-    /*protected  void Mat (){
-        for(int i=0; i < qtdExpressao;i++)
-        {
-            for(int j=0;j < qtdExpressao+1;j++)
-                System.out.println(matriz[i][j] + " ");
-        }
-    }*/
-
 
     public int getLinhas() { return linhas; }
 

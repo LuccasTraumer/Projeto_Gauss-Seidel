@@ -13,7 +13,6 @@ public class LeituraArquivo implements Cloneable{
 
         this.nomeArquivo = nomeArq;
         this.leituraLinha();
-
     }
 
     private void leituraLinha()
@@ -43,8 +42,14 @@ public class LeituraArquivo implements Cloneable{
                     armazena.inclua(verificar.getValor());
                 }
             }
+            verificar.verificarZerosLinhas(armazena.getMatriz());
+            verificar.verificarZerosColunas(armazena.getMatriz());
             OperacoesMatriz opMatriz =  new OperacoesMatriz(armazena);
-        }catch (Exception erro){}
+        }catch (Exception erro)
+        {
+            System.err.println("Erro ocorrido:");
+            System.err.println(erro.getMessage());
+        }
     }
 
     // Obrigatorios Clone

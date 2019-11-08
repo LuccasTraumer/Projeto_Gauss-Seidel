@@ -1,0 +1,104 @@
+
+
+6.  //verificar se já é 1 o i==1 e j==1
+    //verificar se a linha/coluna já é zero (possivel nome pra esse metodo "ehZero")
+
+
+   
+
+public void tornarUmOselementos() //
+{
+    qtdEquacao = 3
+    qtdCOluna = qtdEquacao + 1;
+
+   int qtdDiagonais = qtdEquacoes;
+   int i = 0; // linha
+   
+   while(i < qtdEquacoes) [0][1][2]
+   {
+     for(int j = 0; j<qtdEquacoes+1; j++)
+     {  
+        if(i == j && matriz[i][j] > 1)
+        {
+          for(int aux = 1; aux < qtdColunas; aux++)
+             if(!matriz[i][aux].ehZero)
+              matriz[i][aux] /= matriz[i][j]; //dividindo pelo elemento a ser tornado 1
+        }
+     }
+
+     i++;  
+   }
+
+}
+
+
+
+---------------------------------------------------------------------------------------
+
+//me //////
+
+while(i < qtdEquacoes && j <qtdEquacoes+1)
+{
+   int aux = matriz[i][j];
+
+   for(int linha = 0; linha < qtdEquacoes; linha++)
+   {  
+      coluna = 0;
+      if(coluna < qtdEquacoes + 1)
+      {
+        if(matriz[linha][coluna] != aux && > 1) //aqui verifico se o i e j sao iguais 
+        {
+           matriz[linha][coluna]/aux;
+        }
+        
+        coluna++;
+      }
+   } 
+
+   i++;
+   j++;
+   
+}
+
+
+
+
+//Thiago ///////
+
+for(int i = qtdEquacoes; matriz[i][j] < i; matriz[i+1][j+1])
+{
+   
+}
+  
+ 
+ 
+
+
+7. nesse passo, torno zero todos os elementos quero 
+   private void tornarZeroElementosColuna(int linhaRecentementeImplemen)
+   {
+       int colunaAux;
+       double iDeColuna = 0.0;
+       while(coluna < qtdExpressoes+1)
+       {
+         if(matriz[linharecentementeImplemen + 1][coluna] != 0)// verificando se a coluna dps da diagonal verif é zero
+         {
+            while(colunaAux < qtdExpressoes +1) 
+            {
+              iDeColuna  = matriz[linhaRecentementeImplemen][colunaAux]; //jogando o indice numa variavel pra nao mudar o valor dos indices da matriz
+              iDeColuna *= -matriz[linharecentementeImplemen +1][colunaAux]; //fazendo ela multiplicar pelo valor oposto ao do indice de baixo
+              matriz[linharecentementeImplemen +1][colunaAux] += iDeColuna;// linha de baixo soma com o oposto da linha de cima //nao sei se preciso fazer o clone nesses metodos.
+              colunaAux++; //incremento o valor do indice da coluna
+            }
+         }
+         //else eu nao sei se coloco aqui.
+          linharecentementeImplemen++; //se nao cair no if, eu increment a linha, pra poder verificar na proxima.
+          coluna++
+          colunaAux = 0;
+       }
+       coluna    = 0;
+   }
+
+8.
+
+

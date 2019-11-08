@@ -10,10 +10,10 @@ public class Verificar implements Cloneable{
     {
         this.qtd = qtdEquacoes;
         if(contador.countTokens() != this.qtd+1)
-            throw new Exception("Valores Invalidos");
+            throw new Exception("Não é uma matriz válida.");
 
         if(linhas > this.qtd)
-            throw new Exception("Linha a mais");
+            throw new Exception("Quantidade de linhas incompatíveis.");
 
     }
 
@@ -82,12 +82,10 @@ public class Verificar implements Cloneable{
 
             }
             if(contZero == matriz.length)
-                throw new Exception("Zeros");
+                throw new Exception("Existe uma ou mais linhas preenchidas somente com 0.");
             System.out.println(contZero);
             contZero = 0;
         }
-
-
     }
     protected void verificarZerosColunas(double[][] matriz) throws Exception
     {
@@ -99,21 +97,12 @@ public class Verificar implements Cloneable{
                     contZero++;
             }
             if(contZero == matriz.length)
-                throw new Exception("Zeros");
+               throw new Exception("Existe uma ou mais colunas preenchidas somente com 0.");
             System.out.println(contZero);
             contZero = 0;
 
         }
-
-
-
-
     }
-
-
-
-
-
     // Obrigatorios toString, equals, clone, construtor copia, hashCode
     public boolean equals(Object obj)
     {
