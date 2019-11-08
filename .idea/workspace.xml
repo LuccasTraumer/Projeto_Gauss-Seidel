@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c2613ad1-424f-4991-b5a3-aaea05e0af54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gauss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gauss.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Aula.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Aula.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Aula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Aula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeituraArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeituraArquivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Verificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verificar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,6 +103,7 @@
       <workItem from="1572907463164" duration="344000" />
       <workItem from="1572908702938" duration="2940000" />
       <workItem from="1573215524919" duration="14582000" />
+      <workItem from="1573236385320" duration="2169000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ public class Verificar implements Cloneable{
     public Verificar()
     {}
 
-    public Verificar(int qtdEquacoes, StringTokenizer contador) throws Exception
+    public Verificar(int qtdEquacoes, StringTokenizer contador) //throws Exception
     {
         try {
             this.qtd = qtdEquacoes;
@@ -21,7 +21,7 @@ public class Verificar implements Cloneable{
 
     }
 
-    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas)
+    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas) //throws Exception
     {
         try {
             if (qtdExpressoes != qtdLinhas)
@@ -30,13 +30,13 @@ public class Verificar implements Cloneable{
                 this.qtd = qtdExpressoes;
         }catch (Exception erro)
         {
-            System.out.println(erro.getMessage());
+            System.err.println(erro.getMessage());
         }
 
 
     }
 
-    public Verificar (int qtdExpressao)
+    public Verificar (int qtdExpressao) //throws Exception
     {
         try {
             if (this.verificaQtd(qtdExpressao) != true)
@@ -93,7 +93,7 @@ public class Verificar implements Cloneable{
 
         return true;
     }
-    protected void verificarZerosLinhas(double[][] matriz)
+    protected void verificarZerosLinhas(double[][] matriz) //throws Exception
     {
         try{
         int contZero = 0;
@@ -110,10 +110,10 @@ public class Verificar implements Cloneable{
         }
         }catch (Exception erro)
         {
-            System.out.println(erro.getMessage());
+            System.err.println(erro.getMessage());
         }
     }
-    protected void verificarZerosColunas(double[][] matriz) throws Exception
+    protected void verificarZerosColunas(double[][] matriz) //throws Exception
     {
         // colunas vai até "resultado" ?
         try {
@@ -132,7 +132,7 @@ public class Verificar implements Cloneable{
         }catch (Exception erro)
         {
             System.err.println(erro.getMessage());
-            erro.printStackTrace();
+
         }
 
     }
