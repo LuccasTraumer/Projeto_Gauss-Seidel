@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+
 
 public class Programa {
 
@@ -10,13 +10,15 @@ public class Programa {
             //C:\Users\User\Documents\ProjetaoFinal\gauss.txt
             // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
             //
-            LeituraArquivo ler = new LeituraArquivo("C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt");
+            LeituraArquivo ler = new LeituraArquivo("C:\\Users\\User\\Documents\\ProjetaoFinal\\gauss.txt");
 
 
             //System.out.println(ler.);
             //System.out.println(ler.nomeArquivo);
             //Matriz mat = new Matriz(4);
 
-        }catch (Exception err){}
+        }catch (IOException err){
+            System.err.println(err.getMessage());
+        }
     }
 }

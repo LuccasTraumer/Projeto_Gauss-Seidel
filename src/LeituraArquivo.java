@@ -6,51 +6,83 @@ import java.util.StringTokenizer;
 public class LeituraArquivo implements Cloneable{
     private String nomeArquivo;
     protected Verificar verificar;
-    public LeituraArquivo(String nomeArq) throws  Exception
+    protected Matriz armazena;
+    public LeituraArquivo(String nomeArq) throws  IOException
     {
-        if(nomeArq == null )
-            throw new Exception("Valor NUlo!");
+        if(nomeArq == null || nomeArq.equals("") || nomeArq.equals(" "))
+            throw new IOException("Valor NUlo!");
 
         this.nomeArquivo = nomeArq;
-        this.leituraLinha();
+        this.leituraLinhas();
+        //this.validacoesMatriz();
+    }
+    private void validacoesMatriz() throws Exception
+    {
+        verificar.verificarZerosLinhas(armazena.getMatriz());
+        verificar.verificarZerosColunas(armazena.getMatriz());
+        OperacoesMatriz opMatriz =  new OperacoesMatriz(armazena);
+    }
+    private int contadorLinhasArquivo()
+    {
+        int contador = 0;
+        try{
+            BufferedReader ler;
+            FileReader lerArq = new FileReader(this.nomeArquivo);
+            ler = new BufferedReader(lerArq);
+
+            while(ler.readLine() != null)
+                contador++;
+        }catch (IOException erro){}
+        return contador-1; // menos 1 pois ele conta o 3 que seria a Qtd do Arquivo então tiramos esse valor
     }
 
-    private void leituraLinha()
+    private void leituraLinhas()
     {
         // ALERTA CASO VÁ USAR SO WINDOWS USA DESSA MANEIRA O CAMINHO DO ARQUIVO
         //C:\Users\User\Documents\ProjetaoFinal\gauss.txt
         // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
         ///home/giovana.pinheiro/Documents/ProjetaoFinal/gauss.txt
         // MUDAR NOME DO CAMINHO
+        BufferedReader arquivo ;
         try{
-            BufferedReader arquivo =
+                arquivo =
                     new BufferedReader (
                             new FileReader(
-                                    "C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt"));
+                                    this.nomeArquivo));
 
-            int qtdEquacoes = Integer.parseInt (arquivo.readLine());
+            int qtdEquacoes = Integer.parseInt(arquivo.readLine());
+            int linhas = this.contadorLinhasArquivo();
+
             verificar = new Verificar(qtdEquacoes);
-            int linhas = 0;
-            Matriz armazena = new Matriz(verificar.getQtd());
+            verificar.qtdLinhasValida(qtdEquacoes,linhas);
+
+            armazena = new Matriz(verificar.getQtd());
             for (int i=0; i<qtdEquacoes; i++)
             {
-                linhas++;
+
                 StringTokenizer quebrador = new StringTokenizer (arquivo.readLine());
-                verificar = new Verificar(qtdEquacoes,quebrador,linhas);
+                try {
+                    verificar = new Verificar(qtdEquacoes, quebrador);
+                }
+                catch (Exception erro){ System.err.println(erro.getMessage());}
                 while (quebrador.hasMoreTokens()) {
                     verificar.transformeToDouble(quebrador.nextToken());
                     armazena.inclua(verificar.getValor());
                 }
             }
-            verificar.verificarZerosLinhas(armazena.getMatriz());
-            verificar.verificarZerosColunas(armazena.getMatriz());
-            OperacoesMatriz opMatriz =  new OperacoesMatriz(armazena);
+            arquivo.close();
+            this.validacoesMatriz();
         }catch (Exception erro)
         {
-            System.err.println("Erro ocorrido:");
-            System.err.println(erro.getMessage());
+            System.out.println(erro.getMessage());
         }
+
     }
+
+
+
+
+
 
     // Obrigatorios Clone
     public String getNomeArquivo() { return this.nomeArquivo; }

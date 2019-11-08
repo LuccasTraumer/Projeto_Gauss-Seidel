@@ -1,4 +1,6 @@
 import java.util.StringTokenizer;
+import java.util.concurrent.ExecutionException;
+
 public class Verificar implements Cloneable{
     private double valor;
     private int qtd;
@@ -6,23 +8,44 @@ public class Verificar implements Cloneable{
     public Verificar()
     {}
 
-    public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
+    public Verificar(int qtdEquacoes, StringTokenizer contador) throws Exception
     {
-        this.qtd = qtdEquacoes;
-        if(contador.countTokens() != this.qtd+1)
-            throw new Exception("Não é uma matriz válida.");
-
-        if(linhas > this.qtd)
-            throw new Exception("Quantidade de linhas incompatíveis.");
+        try {
+            this.qtd = qtdEquacoes;
+            if (contador.countTokens() != this.qtd + 1)
+                throw new Exception("Não é uma matriz válida.");
+        }catch (Exception erro)
+        {
+            System.err.println(erro.getMessage());
+        }
 
     }
 
-    public Verificar (int qtdExpressao) throws Exception
+    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas)
     {
-        if(this.verificaQtd(qtdExpressao) != true)
-            throw new Exception("Valor invalido");
+        try {
+            if (qtdExpressoes != qtdLinhas)
+                throw new Exception("Quantidade de Linhas Invalidas!");
+            else
+                this.qtd = qtdExpressoes;
+        }catch (Exception erro)
+        {
+            System.out.println(erro.getMessage());
+        }
 
-        this.qtd = qtdExpressao;
+
+    }
+
+    public Verificar (int qtdExpressao)
+    {
+        try {
+            if (this.verificaQtd(qtdExpressao) != true)
+                throw new Exception("Valor invalido");
+
+            this.qtd = qtdExpressao;
+        }catch (Exception erro){
+            System.err.println(erro.getMessage());
+        }
     }
     protected boolean temZeroDiagonal(double valor)
     {
@@ -42,7 +65,7 @@ public class Verificar implements Cloneable{
     }
     public double getValor(){return this.valor;}
     public int getQtd (){ return this.qtd;}
-/*
+
     protected  boolean verificaQtd ()
     {
 
@@ -51,7 +74,7 @@ public class Verificar implements Cloneable{
 
         return true;
     }
-*/
+
     protected boolean temZerosDiagonal(double[][] matriz)
     {
 
@@ -70,38 +93,48 @@ public class Verificar implements Cloneable{
 
         return true;
     }
-    protected void verificarZerosLinhas(double[][] matriz) throws Exception
+    protected void verificarZerosLinhas(double[][] matriz)
     {
+        try{
         int contZero = 0;
-        for(int i=0; i < matriz.length;i++)
-        {
-            for(int j=0; j < matriz.length;j++)
-            {
-                if(matriz[j][i] == 0)
+        for(int i=0; i < matriz.length;i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[j][i] == 0)
                     contZero++;
 
             }
-            if(contZero == matriz.length)
+            if (contZero == matriz.length)
                 throw new Exception("Existe uma ou mais linhas preenchidas somente com 0.");
-            System.out.println(contZero);
+            //System.out.println(contZero);
             contZero = 0;
+        }
+        }catch (Exception erro)
+        {
+            System.out.println(erro.getMessage());
         }
     }
     protected void verificarZerosColunas(double[][] matriz) throws Exception
     {
+        // colunas vai até "resultado" ?
+        try {
         int contZero = 0;
-        for(int i=0; i < matriz[i].length;i++)// linhas
+        for(int i=0; i < matriz.length-1;i++)// linhas
         {
-            for(int j=0; j < matriz.length;j++) {
-                if(matriz[i][j] == 0)
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[i][j] == 0)
                     contZero++;
             }
-            if(contZero == matriz.length)
-               throw new Exception("Existe uma ou mais colunas preenchidas somente com 0.");
-            System.out.println(contZero);
+            if (contZero == matriz.length)
+                throw new Exception("Existe uma ou mais colunas preenchidas somente com 0.");
+            //System.out.println(contZero);
             contZero = 0;
-
         }
+        }catch (Exception erro)
+        {
+            System.err.println(erro.getMessage());
+            erro.printStackTrace();
+        }
+
     }
     // Obrigatorios toString, equals, clone, construtor copia, hashCode
     public boolean equals(Object obj)
