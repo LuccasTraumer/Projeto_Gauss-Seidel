@@ -83,14 +83,14 @@ public class Verificar implements Cloneable{
             }
             if(contZero == matriz.length)
                 throw new Exception("Existe uma ou mais linhas preenchidas somente com 0.");
-            System.out.println(contZero);
+            //System.out.println(contZero);
             contZero = 0;
         }
     }
     protected void verificarZerosColunas(double[][] matriz) throws Exception
     {
         int contZero = 0;
-        for(int i=0; i < matriz[i].length;i++)// linhas
+        for(int i=0; i < matriz.length;i++)// linhas
         {
             for(int j=0; j < matriz.length;j++) {
                 if(matriz[i][j] == 0)
@@ -98,7 +98,7 @@ public class Verificar implements Cloneable{
             }
             if(contZero == matriz.length)
                throw new Exception("Existe uma ou mais colunas preenchidas somente com 0.");
-            System.out.println(contZero);
+            //System.out.println(contZero);
             contZero = 0;
 
         }

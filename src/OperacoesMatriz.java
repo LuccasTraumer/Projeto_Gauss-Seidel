@@ -1,6 +1,7 @@
 public class OperacoesMatriz {
     private Matriz matrizOperacoes;
     private int[][] matrizAuxiliar;
+    private int[][] matrizAuxiliar2;
     private int[] vetorIndiceCorreto;
     Verificar verificar;
 
@@ -8,15 +9,88 @@ public class OperacoesMatriz {
         this.matrizOperacoes = matriz;
         verificar = new Verificar();
         this.matrizDePossibilidades();
+        //this.blocoDePossibilidades();
+
         if(verificar.temZerosDiagonal(matrizOperacoes.matriz))
            this.testarLinhas();
-            //this.matrizDePossibilidades();
+        ordenaMatriz();
+        this.divisaoLinha();
 
-        validarEquacoesEquivalentes();
+        //validarEquacoesEquivalentes();
 
         // dividir os valores
     }
+    private void ordenaMatriz()
+    {
+        double[][] matrizAuxz = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao()+1];
+        for(int i = 0; i < matrizOperacoes.getQtdExpressao();i++)
+        {
+            int aux = vetorIndiceCorreto[i];
+                for(int z=0; z < matrizOperacoes.getQtdExpressao()+1;z++)
+                {
+                    matrizAuxz[i][z] = matrizOperacoes.matriz[aux][z];
+                    System.out.print(matrizAuxz[i][z] + " ");
+                }
 
+
+            System.out.println();
+        }
+        matrizOperacoes.matriz = matrizAuxz;
+
+        for(int i=0; i<matrizAuxz.length;i++)
+        {
+            for(int j=0;j<matrizAuxz.length+1;j++)
+                System.out.print(matrizOperacoes.matriz[i][j] + " ");
+            System.out.println();
+        }
+
+
+    }
+
+    private void divisaoLinha() {
+        int contadorDivisor = 0;
+        for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
+            contadorDivisor = 0;
+            for (int j = 0; j < matrizOperacoes.getQtdExpressao() + 1; j++) {
+                if(contadorDivisor == 1)
+                    break;
+                if (i == j) {
+                    double divisor = matrizOperacoes.matriz[i][j];
+                    for (int z = 0; z < matrizOperacoes.getQtdExpressao(); z++) {
+                       if(contadorDivisor == 1)
+                           break;
+                        for (int y = 0; y < matrizOperacoes.getQtdExpressao() + 1; y++) {
+                            matrizOperacoes.matriz[z][y] /= divisor;
+                            contadorDivisor = 1;
+                            System.out.print(matrizOperacoes.matriz[z][y] + " ");
+                        }
+                        System.out.println();
+                        multiplicadorColuna(j);
+                    }
+
+                }
+            }
+        }
+    }
+
+    private void multiplicadorColuna(int coluna){
+        for (int j = coluna; j == coluna;j++)
+        {
+            for(int i= 0; i < matrizOperacoes.getQtdExpressao();i++)
+            {
+                    if(matrizOperacoes.matriz[i][j] != 0 && i != j)
+                    {
+                        double multiplicador = -matrizOperacoes.matriz[i][j];
+                        //double[] vetor = new double[matrizOperacoes.getQtdExpressao()+1];
+                        for(int z=j; z == j;z++)
+                        {
+                            matrizOperacoes.matriz[i][z] += matrizOperacoes.matriz[j][z] * multiplicador;
+
+                        }
+                    }
+                }
+            }
+        }
     private void testarLinhas()
     {
         this.vetorIndiceCorreto = new int[matrizOperacoes.matriz.length];
@@ -53,17 +127,16 @@ public class OperacoesMatriz {
             for (int i = 0; i < matrizOperacoes.qtdExpressao; i++) {
 
                 for (int ii = i + 1; ii < matrizOperacoes.qtdExpressao; ii++) {
-                    System.out.println(matrizOperacoes.matriz[i][j] + " / " + (matrizOperacoes.matriz[ii][j]) + " = " + (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0 ? 0 : matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j]) + " | i:" + i + " j:" + j + " ii:" + ii + " - Z:" + z);
-
-                    if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
-                        matrizTemp[z][j] = 0;
-                    } else {
+                    //System.out.println(matrizOperacoes.matriz[i][j] + " / " + (matrizOperacoes.matriz[ii][j]) + " = " + (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0 ? 0 : matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j]) + " | i:" + i + " j:" + j + " ii:" + ii + " - Z:" + z);
+                    //if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
+                     //  matrizTemp[z][j] = 0;
+                    //} else {
                         matrizTemp[z][j] = matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j];
-                    }
+                    //}
                     z++;
                 }
             }
-            System.out.println();
+           // System.out.println();
         }
 
         for(int i = 0; i<matrizTemp.length; i++)
@@ -76,15 +149,12 @@ public class OperacoesMatriz {
 
     }
 
-
         protected void matrizDePossibilidades()
         {
-            int colunas = OperacoesMatematica.Fatoracao(matrizOperacoes.matriz.length);
-            matrizAuxiliar = new int[matrizOperacoes.qtdExpressao][colunas];
-
-            int qtdPossibilidades = colunas;
+            long colunas = OperacoesMatematica.Fatoracao(matrizOperacoes.matriz.length);
+            matrizAuxiliar = new int[matrizOperacoes.qtdExpressao][(int) colunas];
+            long qtdPossibilidades = colunas;
             int incrementador = 0, qual = 0, qtdInserida = 0;
-
 
             for (int i = 0; i < matrizOperacoes.matriz.length; i++) {
                 qtdPossibilidades /= matrizOperacoes.matriz.length - i;
@@ -115,9 +185,69 @@ public class OperacoesMatriz {
                 qual = 0;
                 System.out.println();
                 qtdInserida++;
-
             }
 
         }
+
+    protected void blocoDePossibilidades()
+    {
+       long qtdColunas = OperacoesMatematica.Fatoracao(matrizOperacoes.getQtdExpressao());
+       long colunasBlocos = qtdColunas/matrizOperacoes.getQtdExpressao();
+       int tamanhoBloco = (int)colunasBlocos;
+       int qtdPossibilidades = tamanhoBloco;
+       int[][] blocoAuxiliar = new int[matrizOperacoes.getQtdExpressao()][tamanhoBloco];
+       int qualValor = 0, qtdInserida = 0, incrementador = 0;
+
+       for(int linhas=0;linhas<matrizOperacoes.getQtdExpressao();linhas++) {
+           //qtdPossibilidades /= matrizOperacoes.matriz.length - linhas;
+            for (int colunas=0; colunas<tamanhoBloco;colunas++) {
+                for (int y = 0; y < qtdInserida; y++) {
+                    if (blocoAuxiliar[y][colunas] == qualValor) {
+                        qualValor++;
+                        y = -1;
+                    }
+                    if (qualValor > matrizOperacoes.matriz.length - 1) {
+                        qualValor = 0;
+                        y = -1;
+                    }
+
+                }
+
+                blocoAuxiliar[linhas][colunas] = qualValor;
+                System.out.print(blocoAuxiliar[linhas][colunas] + " ");
+                incrementador++;
+
+                /*if (incrementador == qtdPossibilidades) {
+                    incrementador = 0;*/
+
+                    if (qualValor == matrizOperacoes.matriz.length - 1)
+                        qualValor = 0;
+                    else if(qualValor == incrementador) {
+                        qualValor++;
+                        incrementador=0;
+                    }
+
+                //}
+            }
+           System.out.println();
+            qtdInserida++;
+            qualValor=0;
+
+            }
+
+       }
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
 
