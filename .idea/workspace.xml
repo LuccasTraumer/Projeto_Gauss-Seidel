@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gauss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gauss.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatriz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatriz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OperacoesMatematica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperacoesMatematica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperacoesMatriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperacoesMatriz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Verificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verificar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,22 +127,25 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/OperacoesMatriz.java</url>
-          <line>49</line>
+          <line>41</line>
           <properties class="OperacoesMatriz" method="divisaoLinha">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/OperacoesMatriz.java</url>
+          <line>164</line>
+          <properties class="OperacoesMatriz" method="blocoDePossibilidades">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="getMatriz()" language="JAVA" />
-        <watch expression="getMatriz()" language="JAVA" />
-        <watch expression="matriz[i][j]" language="JAVA" />
-        <watch expression="matrizOperacoes.matriz" language="JAVA" />
-        <watch expression="matrizAuxiliar[i][j]" language="JAVA" />
-        <watch expression="i" language="JAVA" />
+        <watch expression="((OperacoesMatriz)this).matrizOperacoes" custom="OperacoesMatriz" />
       </configuration>
     </watches-manager>
   </component>
