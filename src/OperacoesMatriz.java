@@ -87,7 +87,7 @@ public class OperacoesMatriz
                 ocorrencia++;
             }
             if (ocorrencia == matrizTemp.length) {
-                throw new Exception("Matriz inválida, possui matriz equivalente.");
+                throw new Exception("Matriz inválida, possui equação equivalente.");
             }
         }
     }
