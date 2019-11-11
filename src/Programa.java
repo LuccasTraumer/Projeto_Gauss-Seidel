@@ -7,7 +7,7 @@ public class Programa {
     {
         try {
             BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Digite o Nome do Arquivo a ser Lido: ");
+            System.out.println("Digite o caminho do arquivo a ser Lido: ");
             String nomeArquivo = teclado.readLine();
             LeituraArquivo ler = new LeituraArquivo(nomeArquivo);
             System.out.println(ler.resol);

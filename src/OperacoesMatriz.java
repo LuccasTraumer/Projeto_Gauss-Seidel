@@ -6,8 +6,7 @@ public class OperacoesMatriz
     private Verificar verificar;
     private OperacoesMatematica calculos;
 
-    public OperacoesMatriz(Matriz matriz)
-    {
+    public OperacoesMatriz(Matriz matriz) throws Exception {
         this.matrizOperacoes = matriz;
         verificar = new Verificar();
         this.matrizDePossibilidades();
@@ -19,7 +18,6 @@ public class OperacoesMatriz
         ordenaMatriz();
         calculos = new OperacoesMatematica(matrizOperacoes);
         calculos.divisaoLinha();
-
     }
 
     private void ordenaMatriz()
@@ -52,9 +50,8 @@ public class OperacoesMatriz
             }
         }
     }
-    public void validarEquacoesEquivalentes()
+    public void validarEquacoesEquivalentes() throws Exception
     {
-
         double[][] matrizTemp = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao()];
 
         for (int j = 0; j < matrizOperacoes.getQtdExpressao(); j++) {
@@ -63,22 +60,36 @@ public class OperacoesMatriz
 
                 for (int ii = i + 1; ii < matrizOperacoes.getQtdExpressao(); ii++) {
                     //System.out.println(matrizOperacoes.matriz[i][j] + " / " + (matrizOperacoes.matriz[ii][j]) + " = " + (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0 ? 0 : matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j]) + " | i:" + i + " j:" + j + " ii:" + ii + " - Z:" + z);
-                    //if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
-                    //  matrizTemp[z][j] = 0;
-                    //} else {
+                    if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
+                      matrizTemp[z][j] = 0;
+                    } else {
                     matrizTemp[z][j] = matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j];
-                    //}
+                    }
                     z++;
                 }
             }
         }
-/*
-        for (int i = 0; i < matrizTemp.length; i++) {
-            for (int j = 0; j < matrizTemp.length; j++)
-                System.out.print(matrizTemp[i][j] + " ");
 
+      /*  for (int i = 0; i < matrizTemp.length; i++) {
+            for (int j = 0; j < matrizTemp.length; j++)
+
+                System.out.print(matrizTemp[i][j] + " ");
             System.out.println();
         }*/
+
+        for (int i = 0; i < matrizTemp.length; i++) {
+            int ocorrencia = 0;
+            double aux = matrizTemp[i][0];
+            for (int j = 0; j < matrizTemp.length; j++) {
+                if (aux != matrizTemp[i][j]) {
+                    break;
+                }
+                ocorrencia++;
+            }
+            if (ocorrencia == matrizTemp.length) {
+                throw new Exception("Matriz inválida, possui matriz equivalente.");
+            }
+        }
     }
     protected void matrizDePossibilidades()
     {

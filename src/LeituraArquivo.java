@@ -80,9 +80,7 @@ public class LeituraArquivo implements Cloneable
             System.err.println("Erro ocorrido:");
             System.err.println(erro.getMessage());
         }
-
     }
-
 
     // Obrigatorios Clone
     public String getNomeArquivo() { return this.nomeArquivo; }
@@ -92,7 +90,7 @@ public class LeituraArquivo implements Cloneable
             BufferedReader ler;
             FileReader lerArq = new FileReader(this.nomeArquivo);
             ler = new BufferedReader(lerArq);
-            while (ler.read() != -1) {
+            while (ler.read() != 0) {
                 ret += ler.readLine();
                 ret += "\n";
             }

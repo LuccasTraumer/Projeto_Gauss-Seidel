@@ -1,6 +1,6 @@
 import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
-// Colocar o ComparTo
+// Colocar o CompareTo
 public class Matriz implements Cloneable
 {
     protected double[][] matriz;
@@ -28,8 +28,6 @@ public class Matriz implements Cloneable
             }
         }
     }
-
-
 
     // Obrigatorios toString, equals, clone, construtor copia, hashCode
     public String toString(){
