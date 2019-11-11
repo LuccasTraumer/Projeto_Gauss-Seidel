@@ -89,12 +89,9 @@ public class LeituraArquivo implements Cloneable
             BufferedReader ler;
             FileReader lerArq = new FileReader(this.nomeArquivo);
             ler = new BufferedReader(lerArq);
-<<<<<<< HEAD
+
             int contadorLinhas = 0;
             while (contadorLinhas != armazena.getQtdExpressao()+1) {
-=======
-            while (ler.read() != 0) {
->>>>>>> 52bec6c590ecfe04067deae006c9e5b751554f30
                 ret += ler.readLine();
                 ret += "\n";
                 contadorLinhas++;

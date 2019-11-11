@@ -50,11 +50,7 @@ public class OperacoesMatriz
             }
         }
     }
-<<<<<<< HEAD
-    public void validarEquacoesEquivalentes() // Verifica se tem linhas Equivalentes
-=======
     public void validarEquacoesEquivalentes() throws Exception
->>>>>>> 52bec6c590ecfe04067deae006c9e5b751554f30
     {
         double[][] matrizTemp = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao()];
 
