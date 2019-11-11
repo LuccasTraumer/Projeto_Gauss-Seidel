@@ -4,8 +4,19 @@
     <list default="true" id="c2613ad1-424f-4991-b5a3-aaea05e0af54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gauss.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gauss.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/LeituraArquivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/META-INF/ProjetaoFinal.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Matriz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Matriz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatematica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatematica.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatriz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/OperacoesMatriz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Programa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Programa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetaoFinal/Verificar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeituraArquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeituraArquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Matriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matriz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperacoesMatematica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperacoesMatematica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OperacoesMatriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperacoesMatriz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Programa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Verificar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Verificar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../backup branchs/marcao" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,6 +114,9 @@
       <workItem from="1572906859250" duration="565000" />
       <workItem from="1572907463164" duration="344000" />
       <workItem from="1572908702938" duration="2940000" />
+      <workItem from="1573386534485" duration="388000" />
+      <workItem from="1573386966625" duration="3865000" />
+      <workItem from="1573430965123" duration="13087000" />
     </task>
     <servers />
   </component>
@@ -123,26 +137,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/OperacoesMatriz.java</url>
-          <line>41</line>
-          <properties class="OperacoesMatriz" method="divisaoLinha">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/OperacoesMatriz.java</url>
-          <line>164</line>
-          <properties class="OperacoesMatriz" method="blocoDePossibilidades">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((OperacoesMatriz)this).matrizOperacoes" custom="OperacoesMatriz" />

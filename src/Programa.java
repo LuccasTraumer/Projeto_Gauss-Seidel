@@ -1,22 +1,20 @@
 import java.io.*;
-import java.util.StringTokenizer;
+
 
 public class Programa {
 
     public static void main(String[] Args)
     {
         try {
-            // ALERTA CASO VÁ USAR SO WINDOWS USA DESSA MANEIRA O CAMINHO DO ARQUIVO
-            //C:\Users\User\Documents\ProjetaoFinal\gauss.txt
-            // ALERTA CASO VÁ USAR SO UBUNTU USA DESSA MANEIRA O CAMINHO DO ARQUIVO
-            //
-            LeituraArquivo ler = new LeituraArquivo("C:\\Users\\Marcus Cesar\\ProjetaoFinal\\gauss.txt");
+            BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Digite o Nome do Arquivo a ser Lido: ");
+            String nomeArquivo = teclado.readLine();
+            LeituraArquivo ler = new LeituraArquivo(nomeArquivo);
+            System.out.println(ler.resol);
+            System.out.println(ler);
 
-
-            //System.out.println(ler.);
-            //System.out.println(ler.nomeArquivo);
-            //Matriz mat = new Matriz(4);
-
-        }catch (Exception err){}
+        }catch (Exception err){
+            System.out.println(err.getMessage());
+        }
     }
 }

@@ -4,24 +4,34 @@ public class Verificar implements Cloneable{
     private int qtd;
 
     public Verificar()
-    {}
+    {
+        this.qtd = 0;
+        this.valor = 0.0;
+    }
 
-    public Verificar(int qtdEquacoes, StringTokenizer contador,int linhas) throws Exception
+    public Verificar(int qtdEquacoes, StringTokenizer contador) throws Exception
     {
         this.qtd = qtdEquacoes;
         if(contador.countTokens() != this.qtd+1)
-            throw new Exception("Não é uma matriz válida.");
-
-        if(linhas > this.qtd)
-            throw new Exception("Quantidade de linhas incompatíveis.");
+            throw new Exception("Quantidade de Valores na Coluna é INVALIDO!");
 
     }
-
+    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas) //throws Exception
+    {
+        try {
+            if (qtdExpressoes != qtdLinhas)
+                throw new Exception("Quantidade de Linhas passadas é DIFERENTE da quantidade de Linhas no Arquivo de Texto!");
+            else
+                this.qtd = qtdExpressoes;
+        }catch (Exception erro)
+        {
+            System.err.println(erro.getMessage());
+        }
+    }
     public Verificar (int qtdExpressao) throws Exception
     {
         if(this.verificaQtd(qtdExpressao) != true)
-            throw new Exception("Valor invalido");
-
+            throw new Exception("Quantidade de Expressões passada é Invalida!");
         this.qtd = qtdExpressao;
     }
     protected boolean temZeroDiagonal(double valor)
@@ -40,18 +50,7 @@ public class Verificar implements Cloneable{
             this.valor = 0.0;
         }
     }
-    public double getValor(){return this.valor;}
-    public int getQtd (){ return this.qtd;}
-/*
-    protected  boolean verificaQtd ()
-    {
 
-        if(this.qtd <= 0)
-            return false;
-
-        return true;
-    }
-*/
     protected boolean temZerosDiagonal(double[][] matriz)
     {
 
@@ -83,7 +82,6 @@ public class Verificar implements Cloneable{
             }
             if(contZero == matriz.length)
                 throw new Exception("Existe uma ou mais linhas preenchidas somente com 0.");
-            //System.out.println(contZero);
             contZero = 0;
         }
     }
@@ -98,11 +96,12 @@ public class Verificar implements Cloneable{
             }
             if(contZero == matriz.length)
                throw new Exception("Existe uma ou mais colunas preenchidas somente com 0.");
-            //System.out.println(contZero);
             contZero = 0;
 
         }
     }
+
+
     // Obrigatorios toString, equals, clone, construtor copia, hashCode
     public boolean equals(Object obj)
     {
@@ -150,5 +149,7 @@ public class Verificar implements Cloneable{
         this.qtd = obj.qtd;
         this.valor = obj.valor;
     }
+    public double getValor(){return this.valor;}
+    public int getQtd (){ return this.qtd;}
 
 }

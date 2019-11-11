@@ -1,57 +1,37 @@
 import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
-
-public class Matriz implements Cloneable{
+// Colocar o ComparTo
+public class Matriz implements Cloneable
+{
     protected double[][] matriz;
     private int linhas = 0;
     private int colunas = 0;
     protected Verificar verf;
-    protected int qtdExpressao;
+    private int qtdExpressao;
 
     public Matriz (int qtdExpressao) {
         this.qtdExpressao = qtdExpressao;
-        int valor = qtdExpressao+1;
-        matriz = new double [qtdExpressao][valor];
+        int colunas = qtdExpressao+1;
+        matriz = new double [qtdExpressao][colunas];
     }
 
-    // VERIFICAR SE TEM NECESSIDADE DESSE MÉTODO
-   /* protected void matrizValida() throws Exception{
-            verf.verificarZerosColunas(getMatriz());
-            verf.verificarZerosLinhas(getMatriz());
-           }*/
-
-
-
-    protected void inclua(double valor){
+    protected void inclua(double valor)
+    {
         if(this.linhas < this.qtdExpressao && this.colunas < this.qtdExpressao+1)
         {
             matriz[linhas][colunas] = valor;
-
-            //System.out.print(matriz[linhas][colunas]+" ");
             this.colunas++;
             if(this.colunas >= this.qtdExpressao+1)
             {
                 this.linhas++;
                 this.colunas=0;
-                //System.out.println();
             }
         }
-
     }
 
-    public int getLinhas() { return linhas; }
 
-    public int getColunas() { return colunas; }
-
-    public int getQtdExpressao() { return qtdExpressao; }
-
-    public double[][] getMatriz()
-    {
-        return this.matriz;
-    }
 
     // Obrigatorios toString, equals, clone, construtor copia, hashCode
-
     public String toString(){
         String ret = "";
         for(int linhas = 0; linhas < matriz.length;linhas++)
@@ -70,10 +50,10 @@ public class Matriz implements Cloneable{
         ret = ret * 7 + new Integer(this.colunas).hashCode();
         ret = ret * 7 + new Integer(this.linhas).hashCode();
         ret = ret * 7 + verf.hashCode();
+        ret = ret * 7 + new Integer(this.qtdExpressao).hashCode();
         for(int i=0; i < this.matriz.length;i++)
             for(int j=0; j < this.matriz[i].length;j++)
                 ret = ret * 7 + new Double(this.matriz[i][j]).hashCode();
-
 
         if(ret < 0)
             ret =- ret;
@@ -97,11 +77,7 @@ public class Matriz implements Cloneable{
             return false;
         if(aux.qtdExpressao != this.qtdExpressao)
             return false;
-        /*
-        Acredito que essa Validação não seja necessaria pois estamos verificando a Linha, Colunas e Qtd Expressoes acima
-        if(aux.matriz.length != this.matriz.length || aux.matriz[i].length != this.matriz[i].length)
-            return false;
-        */
+
         for(int linhas= 0; linhas < this.matriz.length; linhas++)
             for(int colunas=0; colunas < matriz[linhas].length;colunas++)
                 if(aux.matriz[linhas][colunas] != this.matriz[linhas][colunas])
@@ -132,4 +108,13 @@ public class Matriz implements Cloneable{
                 this.matriz[linhas][colunas] = mold.matriz[linhas][colunas];
 
     }
+    public int getLinhas() {return linhas;}
+
+    public int getColunas() {return colunas;}
+
+    public int getQtdExpressao() {return qtdExpressao;}
+
+    public double[][] getMatriz() {return this.matriz;}
+
+    public Verificar getVerf() { return verf; }
 }
