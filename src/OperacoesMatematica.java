@@ -6,7 +6,7 @@ public class OperacoesMatematica {
         this.matrizOperacoes = matriz;
     }
 
-    protected static int Fatoracao (int qtd)
+    protected static int Fatoracao (int qtd) // .Faz a Fatoração da Qtd, pra descobrir a qntd de Possibilidade
     {
         int valor = 1;
         for(int i=qtd; i>1; i--)
@@ -15,7 +15,7 @@ public class OperacoesMatematica {
         }
         return valor;
     }
-    protected void multiplicadorColuna(int coluna)
+    protected void multiplicadorColuna(int coluna) // Multiplica a Coluna depois da Divisão da Linha
     {
         for (int j = coluna; j == coluna; j++) {
             for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
@@ -29,7 +29,7 @@ public class OperacoesMatematica {
             }
         }
     }
-    protected void divisaoLinha()
+    protected void divisaoLinha() // faz a Divisão da Linha
     {
         for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
             for (int j = 0; j < matrizOperacoes.getQtdExpressao() + 1; j++) {
@@ -85,7 +85,7 @@ public class OperacoesMatematica {
         }catch (Exception err){}
         return ret;
     }
-
+    // Acessadores
     public Matriz getMatrizOperacoes() {
         return matrizOperacoes;
     }

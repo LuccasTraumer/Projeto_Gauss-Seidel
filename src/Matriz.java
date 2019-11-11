@@ -15,7 +15,7 @@ public class Matriz implements Cloneable
         matriz = new double [qtdExpressao][colunas];
     }
 
-    protected void inclua(double valor)
+    protected void inclua(double valor) // .Inclui o Valor na Matriz
     {
         if(this.linhas < this.qtdExpressao && this.colunas < this.qtdExpressao+1)
         {
@@ -106,6 +106,7 @@ public class Matriz implements Cloneable
                 this.matriz[linhas][colunas] = mold.matriz[linhas][colunas];
 
     }
+    // Acessadores
     public int getLinhas() {return linhas;}
 
     public int getColunas() {return colunas;}

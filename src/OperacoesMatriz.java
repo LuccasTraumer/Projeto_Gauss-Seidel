@@ -20,7 +20,7 @@ public class OperacoesMatriz
         calculos.divisaoLinha();
     }
 
-    private void ordenaMatriz()
+    private void ordenaMatriz() // .Ordena na Ordem Correta com as Diagonais Diferente de Zero
     {
         double[][] matrizAuxz = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao() + 1];
         for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
@@ -50,7 +50,11 @@ public class OperacoesMatriz
             }
         }
     }
+<<<<<<< HEAD
+    public void validarEquacoesEquivalentes() // Verifica se tem linhas Equivalentes
+=======
     public void validarEquacoesEquivalentes() throws Exception
+>>>>>>> 52bec6c590ecfe04067deae006c9e5b751554f30
     {
         double[][] matrizTemp = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao()];
 
@@ -91,7 +95,7 @@ public class OperacoesMatriz
             }
         }
     }
-    protected void matrizDePossibilidades()
+    protected void matrizDePossibilidades() // Cria a Matriz de Possibilidades
     {
         long colunas = OperacoesMatematica.Fatoracao(matrizOperacoes.getQtdExpressao());
         matrizAuxiliar = new int[matrizOperacoes.getQtdExpressao()][(int) colunas];
@@ -127,7 +131,8 @@ public class OperacoesMatriz
             qtdInserida++;
         }
     }
-    protected void blocoDePossibilidades() {
+    protected void blocoDePossibilidades()// Seria o Bloco de Possibolidades,mas não conseguimos Terminar
+    {
         long qtdColunas = OperacoesMatematica.Fatoracao(matrizOperacoes.getQtdExpressao());
         long colunasBlocos = qtdColunas / matrizOperacoes.getQtdExpressao();
         int tamanhoBloco = (int) colunasBlocos;

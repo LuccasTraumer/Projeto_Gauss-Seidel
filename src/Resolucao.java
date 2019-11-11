@@ -2,8 +2,7 @@ public class Resolucao implements Cloneable{
     private double[][] resol;
 
     public Resolucao(double[][] resolt){
-        this.resol = resolt;
-    }
+        this.resol = resolt; } // .Construtor recebe a matriz como parametro que vai ser mostrada
 
     // Obrigatorios Clone,Construtor copia,hashCode, toString, equals
     public String toString()
@@ -65,7 +64,7 @@ public class Resolucao implements Cloneable{
         }catch (Exception erro){}
         return ret;
     }
-
+    // O Acessador, Getter
     public double[][] getResol() {
         return resol;
     }

@@ -12,7 +12,7 @@ public class LeituraArquivo implements Cloneable
     private BufferedReader arquivo;
     protected Resolucao resol;
 
-    public LeituraArquivo(String nomeArq) throws  Exception
+    public LeituraArquivo(String nomeArq) throws  Exception // .Construtor que recebe como Parametro o nome do Arquivo e Verifica se o nome é valido
     {
         if(nomeArq == null || nomeArq.equals("") || nomeArq.equals(" "))
             throw new Exception("Nome de Arquivo Invalido!");
@@ -24,7 +24,7 @@ public class LeituraArquivo implements Cloneable
         OperacoesMatriz opMatriz =  new OperacoesMatriz(armazena);
         resol = new Resolucao(armazena.getMatriz());
     }
-    private int contadorLinhasArquivo()
+    private int contadorLinhasArquivo() // Faz z contagem de Linhas para fazer a comparação com Qtd
     {
         int contador = 0;
         try{
@@ -38,13 +38,13 @@ public class LeituraArquivo implements Cloneable
         return contador-1; // menos 1 pois ele conta o 3 que seria a Qtd do Arquivo então tiramos esse valor
     }
 
-    private void validacoesMatriz() throws Exception
+    private void validacoesMatriz() throws Exception // Chama outro dois metodos Pra ve se ela Tem uma ou Mais Linhas ou Colunas somente com Zeros
     {
         verificar.verificarZerosLinhas(armazena.getMatriz());
         verificar.verificarZerosColunas(armazena.getMatriz());
     }
 
-    private void leituraLinha()
+    private void leituraLinha() // Faz a Leitura da Linha, Passa para Transformar em um Valor Numerico e Armazena na Matriz
     {
         try{
             arquivo = new BufferedReader (new FileReader(this.nomeArquivo));
@@ -77,8 +77,7 @@ public class LeituraArquivo implements Cloneable
             arquivo.close();
         }catch (Exception erro)
         {
-            System.err.println("Erro ocorrido:");
-            System.err.println(erro.getMessage());
+
         }
     }
 
@@ -90,11 +89,16 @@ public class LeituraArquivo implements Cloneable
             BufferedReader ler;
             FileReader lerArq = new FileReader(this.nomeArquivo);
             ler = new BufferedReader(lerArq);
+<<<<<<< HEAD
+            int contadorLinhas = 0;
+            while (contadorLinhas != armazena.getQtdExpressao()+1) {
+=======
             while (ler.read() != 0) {
+>>>>>>> 52bec6c590ecfe04067deae006c9e5b751554f30
                 ret += ler.readLine();
                 ret += "\n";
-            }
-            //ret += ler.readLine();
+                contadorLinhas++;
+            }ler.close();
         }catch(IOException erro){}
         return ret;
     }
@@ -152,7 +156,7 @@ public class LeituraArquivo implements Cloneable
 
         return true;
     }
-
+// Os Acessadores, Getters
     public Verificar getVerificar() {
         return verificar;
     }
