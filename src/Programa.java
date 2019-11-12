@@ -11,7 +11,7 @@ public class Programa {
             String nomeArquivo = teclado.readLine();
             LeituraArquivo ler = new LeituraArquivo(nomeArquivo);
             System.out.println(ler.resol);
-            System.out.println(ler);
+            //System.out.println(ler);
 
         }catch (Exception err){
             System.err.println("Erros ocorridos.:");

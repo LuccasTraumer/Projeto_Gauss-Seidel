@@ -10,11 +10,11 @@ public class OperacoesMatriz
         this.matrizOperacoes = matriz;
         verificar = new Verificar();
         this.matrizDePossibilidades();
-        //this.blocoDePossibilidades();
 
         if (verificar.temZerosDiagonal(matrizOperacoes.matriz))
             this.testarLinhas();
         validarEquacoesEquivalentes();
+        testarLinhas();
         ordenaMatriz();
         calculos = new OperacoesMatematica(matrizOperacoes);
         calculos.divisaoLinha();
@@ -62,50 +62,40 @@ public class OperacoesMatriz
     }
     public void validarEquacoesEquivalentes() throws Exception
     {
-        double[][] matrizTemp = new double[matrizOperacoes.getQtdExpressao()][matrizOperacoes.getQtdExpressao()];
-
+        int qtdLinhas = 0;
+        for(int i =0; i<matrizOperacoes.getQtdExpressao();i++) {
+            qtdLinhas += i;
+        }
+        double[][] matrizTemp = new double[qtdLinhas][matrizOperacoes.getQtdExpressao()];
         for (int j = 0; j < matrizOperacoes.getQtdExpressao(); j++) {
             int z = 0;
             for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
-                if(z > matrizOperacoes.matriz.length) {
-                    z = 0;
-                }
-                else {
+                for (int ii = i + 1; ii < matrizOperacoes.getQtdExpressao(); ii++) {
+                    if (matrizOperacoes.getMatriz()[i][j] == 0 || matrizOperacoes.getMatriz()[ii][j] == 0) {
+                        matrizTemp[z][j] = 0;
+                    } else {
+                        matrizTemp[z][j] = matrizOperacoes.getMatriz()[i][j]/matrizOperacoes.getMatriz()[ii][j];
+                    }
                     z++;
                 }
-                for (int ii = i + 1; ii < matrizOperacoes.getQtdExpressao(); ii++) {
-                    //System.out.println(matrizOperacoes.matriz[i][j] + " / " + (matrizOperacoes.matriz[ii][j]) + " = " + (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0 ? 0 : matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j]) + " | i:" + i + " j:" + j + " ii:" + ii + " - Z:" + z);
-                   if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
-                      matrizTemp[z][j] = 0;
-                    } else {
-
-                    }
-                    matrizTemp[z][j] = matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j];
-                }
             }
-        }
-
-      /*  for (int i = 0; i < matrizTemp.length; i++) {
-            for (int j = 0; j < matrizTemp.length; j++)
-
-                System.out.print(matrizTemp[i][j] + " ");
             System.out.println();
-        }*/
-
+        }
         for (int i = 0; i < matrizTemp.length; i++) {
             int ocorrencia = 0;
             double aux = matrizTemp[i][0];
-            for (int j = 0; j < matrizTemp.length; j++) {
+            for (int j = 0; j < matrizOperacoes.getMatriz().length; j++) {
                 if (aux != matrizTemp[i][j]) {
                     break;
                 }
                 ocorrencia++;
             }
-            if (ocorrencia == matrizTemp.length) {
+            if (ocorrencia == matrizOperacoes.matriz.length) {
                 throw new Exception("Matriz inválida, possui equação equivalente.");
             }
         }
     }
+
     protected void matrizDePossibilidades() // Cria a Matriz de Possibilidades
     {
         long colunas = OperacoesMatematica.Fatoracao(matrizOperacoes.getQtdExpressao());
@@ -142,24 +132,6 @@ public class OperacoesMatriz
             qtdInserida++;
         }
     }
-    protected void blocoDePossibilidades()// Seria o Bloco de Possibolidades,mas não conseguimos Terminar
-    {
-        long qtdColunas = OperacoesMatematica.Fatoracao(matrizOperacoes.getQtdExpressao());
-        long colunasBlocos = qtdColunas / matrizOperacoes.getQtdExpressao();
-        int tamanhoBloco = (int) colunasBlocos;
-        int[][] blocoAuxiliar = new int[matrizOperacoes.getQtdExpressao()][tamanhoBloco];
-        int qualValor = 0, qtdInserida = 0;
-
-        for(int i=0;i<matrizOperacoes.getQtdExpressao();i++){
-            for(int j=0; j< tamanhoBloco;j++){
-                if(tamanhoBloco == matrizOperacoes.getQtdExpressao()-1)
-                {
-                    qualValor++;
-                }
-                blocoAuxiliar[i][j] = qualValor;
-            }
-        }
-    }
 
     // Obrigatorios Clone,Construtor copia,hashCode, toString, equals
     public int hashCode()
@@ -175,6 +147,7 @@ public class OperacoesMatriz
             ret -= ret;
         return ret;
     }
+
     public boolean equals(Object obj)
     {
         if(obj == null)
@@ -196,6 +169,7 @@ public class OperacoesMatriz
             return false;
         return true;
     }
+
     public OperacoesMatriz(OperacoesMatriz mold) throws Exception
     {
         if(mold == null)
@@ -206,6 +180,7 @@ public class OperacoesMatriz
         this.verificar = mold.verificar;
         this.calculos = mold.calculos;
     }
+
     public Object clone(){
         OperacoesMatriz ret = null;
         try{

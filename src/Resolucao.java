@@ -7,10 +7,10 @@ public class Resolucao implements Cloneable{
     // Obrigatorios Clone,Construtor copia,hashCode, toString, equals
     public String toString()
     {
-        String ret = "";
+        String ret = "  RESOLUÇÃO: \n\n";
         for(int linhas=0; linhas < resol.length;linhas++) {
             for (int colunas = 0; colunas < resol[linhas].length; colunas++) {
-                ret += resol[linhas][colunas] + " ";
+                ret += "  "+ resol[linhas][colunas] + "  ";
             }
             ret += "\n";
         }

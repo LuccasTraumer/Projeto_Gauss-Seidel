@@ -123,6 +123,7 @@ public class LeituraArquivo implements Cloneable
         this.resol = mold.resol;
         this.nomeArquivo = mold.nomeArquivo;
     }
+
     public boolean equals(Object obj)
     {
         if(obj == null)
@@ -142,9 +143,9 @@ public class LeituraArquivo implements Cloneable
             return false;
         if(aux.verificar != this.verificar)
             return false;
-
         return true;
     }
+
 // Os Acessadores, Getters
     public Verificar getVerificar() {
         return verificar;

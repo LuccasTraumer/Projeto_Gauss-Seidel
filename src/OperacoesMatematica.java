@@ -15,20 +15,25 @@ public class OperacoesMatematica {
         }
         return valor;
     }
+
     protected void multiplicadorColuna(int coluna) // Multiplica a Coluna depois da Divisão da Linha
     {
         for (int j = coluna; j == coluna; j++) {
             for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
                 if (matrizOperacoes.matriz[i][j] != 0 && i != j) {
                     double multiplicador = -matrizOperacoes.matriz[i][j];
-                    //double[] vetor = new double[matrizOperacoes.getQtdExpressao()+1];
                     for (int z = 0; z < matrizOperacoes.getQtdExpressao() + 1; z++) {
                         matrizOperacoes.matriz[i][z] += matrizOperacoes.matriz[j][z] * multiplicador;
+                        if(matrizOperacoes.matriz[i][z] == -0)
+                        {
+                            matrizOperacoes.matriz[i][z] = 0;
+                        }
                     }
                 }
             }
         }
     }
+
     protected void divisaoLinha() // faz a Divisão da Linha
     {
         for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
@@ -56,6 +61,7 @@ public class OperacoesMatematica {
             ret -= ret;
         return ret;
     }
+
     public boolean equals(Object obj)
     {
         if(obj == null)
@@ -76,6 +82,7 @@ public class OperacoesMatematica {
             throw new Exception("Objeto Nulo, não Possivel Clona-lo");
         this.matrizOperacoes = mold.matrizOperacoes;
     }
+
     public Object clone()
     {
         OperacoesMatematica ret = null;
