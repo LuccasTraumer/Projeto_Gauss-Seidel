@@ -1,7 +1,5 @@
 import java.awt.font.NumericShaper;
 import java.io.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.StringTokenizer;
 
 public class LeituraArquivo implements Cloneable
@@ -44,9 +42,8 @@ public class LeituraArquivo implements Cloneable
         verificar.verificarZerosColunas(armazena.getMatriz());
     }
 
-    private void leituraLinha() // Faz a Leitura da Linha, Passa para Transformar em um Valor Numerico e Armazena na Matriz
+    private void leituraLinha() throws Exception// Faz a Leitura da Linha, Passa para Transformar em um Valor Numerico e Armazena na Matriz
     {
-        try{
             arquivo = new BufferedReader (new FileReader(this.nomeArquivo));
 
             int qtdEquacoes = 0;
@@ -56,7 +53,6 @@ public class LeituraArquivo implements Cloneable
             }
             catch(NumberFormatException erro)
             {
-                System.err.println(erro.getMessage());
                 throw new Exception("Não Foi Possivel Converter!");
             }
 
@@ -75,10 +71,6 @@ public class LeituraArquivo implements Cloneable
                 }
             }
             arquivo.close();
-        }catch (Exception erro)
-        {
-
-        }
     }
 
     // Obrigatorios Clone

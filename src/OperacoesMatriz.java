@@ -31,7 +31,7 @@ public class OperacoesMatriz
         }
         matrizOperacoes.matriz = matrizAuxz;
     }
-    private void testarLinhas()
+    private void testarLinhas() throws Exception
     {
         this.vetorIndiceCorreto = new int[matrizOperacoes.getQtdExpressao()];
         int contador = 0;
@@ -49,6 +49,16 @@ public class OperacoesMatriz
                 }
             }
         }
+        for(int i = 0; i<vetorIndiceCorreto.length;i++)
+        {
+            for(int j=i+1; j<vetorIndiceCorreto.length-1; j++)
+            {
+                if(vetorIndiceCorreto[i] == vetorIndiceCorreto[j])
+                {
+                    throw new Exception("Matriz inválida. Existe uma equação que é a única correspondente para duas ou mais linhas.");
+                }
+            }
+        }
     }
     public void validarEquacoesEquivalentes() throws Exception
     {
@@ -57,15 +67,20 @@ public class OperacoesMatriz
         for (int j = 0; j < matrizOperacoes.getQtdExpressao(); j++) {
             int z = 0;
             for (int i = 0; i < matrizOperacoes.getQtdExpressao(); i++) {
-
+                if(z > matrizOperacoes.matriz.length) {
+                    z = 0;
+                }
+                else {
+                    z++;
+                }
                 for (int ii = i + 1; ii < matrizOperacoes.getQtdExpressao(); ii++) {
                     //System.out.println(matrizOperacoes.matriz[i][j] + " / " + (matrizOperacoes.matriz[ii][j]) + " = " + (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0 ? 0 : matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j]) + " | i:" + i + " j:" + j + " ii:" + ii + " - Z:" + z);
-                    if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
+                   if (matrizOperacoes.matriz[i][j] == 0 || matrizOperacoes.matriz[ii][j] == 0) {
                       matrizTemp[z][j] = 0;
                     } else {
-                    matrizTemp[z][j] = matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j];
+
                     }
-                    z++;
+                    matrizTemp[z][j] = matrizOperacoes.matriz[i][j] / matrizOperacoes.matriz[ii][j];
                 }
             }
         }

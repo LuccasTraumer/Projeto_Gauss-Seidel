@@ -16,7 +16,6 @@ public class Programa {
         }catch (Exception err){
             System.err.println("Erros ocorridos.:");
             System.err.println(err.getMessage());
-            System.out.println(err.getMessage());
         }
     }
 }

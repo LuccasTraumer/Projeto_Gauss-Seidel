@@ -39,7 +39,6 @@ public class OperacoesMatematica {
                         for (int y = 0; y < matrizOperacoes.getQtdExpressao() + 1; y++) {
                             matrizOperacoes.matriz[z][y] /= divisor;
                         }
-
                         multiplicadorColuna(z);
                     }
                 }

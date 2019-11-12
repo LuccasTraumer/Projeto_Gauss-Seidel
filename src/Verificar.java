@@ -13,20 +13,20 @@ public class Verificar implements Cloneable{
     {
         this.qtd = qtdEquacoes;
         if(contador.countTokens() != this.qtd+1)
-            throw new Exception("Quantidade de Valores na Linhas é INVALIDO!.");
+            throw new Exception("Quantidade de Valores na Linha é INVALIDO!.");
 
     }
-    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas) //throws Exception
+    protected void qtdLinhasValida(int qtdExpressoes, int qtdLinhas) throws Exception
     {
-        try {
+       // try {
             if (qtdExpressoes != qtdLinhas)
                 throw new Exception("Quantidade de Linhas passadas é DIFERENTE da quantidade de Linhas no Arquivo de Texto!");
             else
                 this.qtd = qtdExpressoes;
-        }catch (Exception erro)
+       /* }catch (Exception erro)
         {
             System.err.println(erro.getMessage());
-        }
+        }*/
     }
     public Verificar (int qtdExpressao) throws Exception // Verifica se a Quantidade de Linhas é valida
     {

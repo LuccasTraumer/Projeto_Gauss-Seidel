@@ -42,6 +42,7 @@ public class Matriz implements Cloneable
         }
         return ret;
     }
+
     public int hashCode()
     {
         int ret = 1;
