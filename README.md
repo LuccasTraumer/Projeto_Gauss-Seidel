@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/luccastraumer/Projeto_Gauss-Seidel)
+
 # ProjetaoFinal
 Projeto Maligno
 
