@@ -8,4 +8,4 @@ Lucas Jesus @luccastraumer
 Marcus Husemann @Marcuscps19
 Giovana Pinheiro @gpinheiro1
 Thiago Almeida @ThiagoAlmeidaa
-Livia Brandao 
+Livia Brandao @LiviaBrandao
